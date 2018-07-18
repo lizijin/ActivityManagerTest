@@ -218,7 +218,7 @@ public class ActivityThreadHook {
     /**
      * hook掉ActivityThread的mH对象的Callback
      **/
-    public void hookHandler() {
+    public void hookHandlerCallback() {
         try {
             Object object = getActivityThread();
 

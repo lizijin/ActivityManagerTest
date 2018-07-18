@@ -5,17 +5,20 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.peter.activitymanagertest.hook.ActivityHook;
 import com.peter.activitymanagertest.hook.ActivityThreadHook;
 
 public class MainActivity extends AppCompatActivity {
-
+    public static MainActivity  sMainActivity;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        ActivityThreadHook.getActivityThread();
+        sMainActivity = this;
+        //Hook ActivityThread的mH的callback对象
         ActivityThreadHook hook = new ActivityThreadHook();
-        hook.hookHandler();
+        hook.hookHandlerCallback();
+
         findViewById(R.id.second_activity).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -23,5 +26,16 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    public void startActivity(Intent intent) {
+        super.startActivity(intent);
+        ActivityHook.printActvity(this);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
     }
 }
