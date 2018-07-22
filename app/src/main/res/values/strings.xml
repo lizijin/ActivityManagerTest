@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">ActivityManagerTest</string>
+    <string name="title_activity_frame_layout">FrameLayoutActivity</string>
 </resources>
