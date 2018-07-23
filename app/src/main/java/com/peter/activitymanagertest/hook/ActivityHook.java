@@ -1,6 +1,8 @@
 package com.peter.activitymanagertest.hook;
 
 import android.app.Activity;
+import android.graphics.Color;
+import android.view.Window;
 
 import java.lang.reflect.Field;
 
@@ -21,4 +23,35 @@ public class ActivityHook {
             e.printStackTrace();
         }
     }
+
+    public static void printActivityWindowManager(Activity activity){
+        try {
+            Field windowManagerField =  Activity.class.getDeclaredField("mWindowManager");
+            windowManagerField.setAccessible(true);
+            System.out.println("jiangbin--> the windows"+windowManagerField.get(activity));
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public static void printActivityWindow(Activity activity) {
+        try {
+
+            Field mWindowField =  Activity.class.getDeclaredField("mWindow");
+            mWindowField.setAccessible(true);
+            Window mWindow = (Window) mWindowField.get(activity);
+            System.out.println("jiangbin--> window attr activity " + mWindow.getAttributes());
+            mWindow.getDecorView().setBackgroundColor(Color.RED);
+            System.out.println("jiangbin--> window in Dialog "+mWindow);
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 }

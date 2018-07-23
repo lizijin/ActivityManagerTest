@@ -1,10 +1,12 @@
 package com.peter.activitymanagertest;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 
-import com.peter.activitymanagertest.hook.ViewHook;
+import com.peter.activitymanagertest.hook.DialogHook;
 
 public class MainActivity extends BaseActivity {
     public static MainActivity  sMainActivity;
@@ -21,16 +23,17 @@ public class MainActivity extends BaseActivity {
         sMainActivity = this;
         //Hook ActivityThread的mH的callback对象
 
+
         final View secondActivity = findViewById(R.id.second_activity);
         secondActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ViewHook.printViewRootImpl(getWindow().getDecorView());
-                ViewHook.printViewRootImpl(secondActivity);
+//                ViewHook.printViewRootImpl(getWindow().getDecorView());
+//                ViewHook.printViewRootImpl(secondActivity);
 
 
-//                Intent intent = new Intent(MainActivity.this,SecondActivity.class);
-//                startActivity(intent);
+                Intent intent = new Intent(MainActivity.this,SecondActivity.class);
+                startActivity(intent);
             }
         });
         findViewById(R.id.main_activity).setOnClickListener(new View.OnClickListener() {
@@ -45,6 +48,22 @@ public class MainActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this,FrameLayoutActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        findViewById(R.id.frame_show_dialog).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               Dialog dialog =  new Dialog(MainActivity.this);
+               dialog.setTitle("hello");
+//               TextView textView =  new TextView(MainActivity.this);
+//               textView.setText("hello");
+//               dialog.setContentView(textView);
+                dialog.setContentView(LayoutInflater.from(MainActivity.this).inflate(R.layout.activity_main,null));
+               dialog.show();
+               DialogHook.printDialogWindowManager(dialog);
+                DialogHook.printDialogPhoneWindow(dialog);
+
             }
         });
     }

@@ -1,8 +1,11 @@
 package com.peter.activitymanagertest;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+
+import com.peter.activitymanagertest.hook.ActivityHook;
 
 /**
  * Created by jiangbin on 2018/7/16.
@@ -14,6 +17,9 @@ public class BaseActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         System.out.println(TAG_LIFE_RECYCLE + getClass().getName() + " onCreate");
+        System.out.println("jiangbin--> the window "+getSystemService(Context.WINDOW_SERVICE));
+        ActivityHook.printActivityWindowManager(this);
+        ActivityHook.printActivityWindow(this);
     }
 
 //    @Override
