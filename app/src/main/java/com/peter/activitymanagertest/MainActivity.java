@@ -7,9 +7,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 
 import com.peter.activitymanagertest.hook.DialogHook;
+import com.peter.activitymanagertest.view.LifeCycleView;
 
 public class MainActivity extends BaseActivity {
-    public static MainActivity  sMainActivity;
+    public static MainActivity sMainActivity;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,21 +34,21 @@ public class MainActivity extends BaseActivity {
 //                ViewHook.printViewRootImpl(secondActivity);
 
 
-                Intent intent = new Intent(MainActivity.this,SecondActivity.class);
+                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
                 startActivity(intent);
             }
         });
         findViewById(R.id.main_activity).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,MainActivity.class);
+                Intent intent = new Intent(MainActivity.this, MainActivity.class);
                 startActivity(intent);
             }
         });
         findViewById(R.id.frame_layout_activity).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,FrameLayoutActivity.class);
+                Intent intent = new Intent(MainActivity.this, FrameLayoutActivity.class);
                 startActivity(intent);
             }
         });
@@ -54,16 +56,33 @@ public class MainActivity extends BaseActivity {
         findViewById(R.id.frame_show_dialog).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               Dialog dialog =  new Dialog(MainActivity.this);
-               dialog.setTitle("hello");
+                Dialog dialog = new Dialog(MainActivity.this);
+                dialog.setTitle("hello");
 //               TextView textView =  new TextView(MainActivity.this);
 //               textView.setText("hello");
 //               dialog.setContentView(textView);
-                dialog.setContentView(LayoutInflater.from(MainActivity.this).inflate(R.layout.activity_main,null));
-               dialog.show();
-               DialogHook.printDialogWindowManager(dialog);
+                dialog.setContentView(LayoutInflater.from(MainActivity.this).inflate(R.layout.activity_main, null));
+                dialog.show();
+                DialogHook.printDialogWindowManager(dialog);
                 DialogHook.printDialogPhoneWindow(dialog);
 
+            }
+        });
+        final LifeCycleView lifeCycleView = findViewById(R.id.life_view);
+        lifeCycleView.setOnClickListener(new View.OnClickListener() {
+            int count = 0;
+
+            @Override
+            public void onClick(View v) {
+                if (count % 2 == 0) {
+                    lifeCycleView.requestLayout();
+                    System.out.println("jiangbin--> requestLayout");
+                } else {
+                    lifeCycleView.invalidate();
+                    System.out.println("jiangbin--> invalidate");
+
+                }
+                count++;
             }
         });
     }
