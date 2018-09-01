@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.peter.activitymanagertest.TestCoordinatorLayout">
+    tools:context="com.peter.activitymanagertest.activity.TestCoordinatorLayout">
 
     <FrameLayout android:background="#f00"
         android:layout_width="match_parent"

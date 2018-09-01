@@ -3,7 +3,7 @@
     package="com.peter.activitymanagertest">
 
     <application
-        android:name=".MyApplication"
+        android:name=".activity.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -11,21 +11,35 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
-            android:launchMode="singleTop">
+            android:name=".activity.MainActivity"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".activity.NewMainActivity"
+            android:label="@string/title_activity_new_main">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SecondActivity" />
+        <activity android:name=".activity.SecondActivity" />
         <activity
-            android:name=".FrameLayoutActivity"
+            android:name=".activity.FrameLayoutActivity"
             android:label="@string/title_activity_frame_layout"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".MyFragmentActivity" />
-        <activity android:name=".TestCoordinatorLayout"></activity>
+        <activity android:name=".activity.MyFragmentActivity" />
+        <activity android:name=".activity.TestCoordinatorLayout" />
+        <activity
+            android:name=".activity.ScrollingActivity"
+            android:label="@string/title_activity_scrolling"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.RecyclerViewActivity"></activity>
     </application>
 
 </manifest>

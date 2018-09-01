@@ -7,12 +7,12 @@ import java.lang.reflect.Method;
  */
 
 public class ActivityClientRecordHook {
-    public static void print(Object object){
+    public static void print(Object object) {
         try {
             Method getStateStringMethod = object.getClass().getDeclaredMethod("getStateString");
             getStateStringMethod.setAccessible(true);
-           String stateString = (String) getStateStringMethod.invoke(object);
-            System.out.println("jiangbin-->stateString"+stateString);
+            String stateString = (String) getStateStringMethod.invoke(object);
+            System.out.println("jiangbin-->stateString" + stateString);
         } catch (Exception e) {
             e.printStackTrace();
         }

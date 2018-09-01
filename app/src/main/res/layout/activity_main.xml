@@ -6,7 +6,7 @@
     android:fitsSystemWindows="true"
     android:id="@+id/root"
     android:layout_height="match_parent"
-    tools:context="com.peter.activitymanagertest.MainActivity">
+    tools:context="com.peter.activitymanagertest.activity.MainActivity">
 
     <Button android:id="@+id/second_activity"
         android:layout_width="wrap_content"

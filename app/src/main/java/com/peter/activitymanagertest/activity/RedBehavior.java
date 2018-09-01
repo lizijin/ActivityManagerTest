@@ -1,4 +1,4 @@
-package com.peter.activitymanagertest;
+package com.peter.activitymanagertest.activity;
 
 import android.content.Context;
 import android.support.design.widget.CoordinatorLayout;

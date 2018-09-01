@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.peter.activitymanagertest.view.MyFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
-    android:layout_height="match_parent" android:background="#f00">
+    android:layout_height="match_parent">
 
     <com.peter.activitymanagertest.view.MyTextView
         android:background="#f0f"

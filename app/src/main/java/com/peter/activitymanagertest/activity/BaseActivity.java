@@ -1,4 +1,4 @@
-package com.peter.activitymanagertest;
+package com.peter.activitymanagertest.activity;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -22,17 +22,6 @@ public class BaseActivity extends AppCompatActivity {
         ActivityHook.printActivityWindow(this);
     }
 
-//    @Override
-//    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-//        super.onRestoreInstanceState(savedInstanceState);
-//        System.out.println(TAG_LIFE_RECYCLE + getClass().getName() + " onRestoreInstanceState");
-//
-//    }
-//
-//    @Override
-//    protected void onSaveInstanceState(Bundle outState) {
-//        super.onSaveInstanceState(outState);
-//    }
 
     @Override
     protected void onStart() {

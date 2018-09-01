@@ -1,4 +1,4 @@
-package com.peter.activitymanagertest;
+package com.peter.activitymanagertest.activity;
 
 import android.app.Dialog;
 import android.content.Intent;
@@ -10,6 +10,7 @@ import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 
+import com.peter.activitymanagertest.R;
 import com.peter.activitymanagertest.hook.DialogHook;
 import com.peter.activitymanagertest.view.LifeCycleView;
 
