@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">ActivityManagerTest</string>
     <string name="title_activity_frame_layout">FrameLayoutActivity</string>
+    <string name="green">com.peter.activitymanagertest.GreenBehavior</string>
+    <string name="red">com.peter.activitymanagertest.RedBehavior</string>
+    <string name="head">Heade</string>
 </resources>

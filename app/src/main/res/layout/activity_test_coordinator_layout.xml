@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.peter.activitymanagertest.TestCoordinatorLayout">
+
+    <FrameLayout android:background="#f00"
+        android:layout_width="match_parent"
+        app:layout_behavior="@string/red"
+        android:layout_height="match_parent">
+
+    </FrameLayout>
+    <FrameLayout
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="#0f0"
+        app:layout_behavior="@string/green"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></FrameLayout>
+
+</android.support.design.widget.CoordinatorLayout>

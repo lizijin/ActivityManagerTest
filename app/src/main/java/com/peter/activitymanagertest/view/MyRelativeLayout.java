@@ -3,6 +3,7 @@ package com.peter.activitymanagertest.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
+import android.view.WindowInsets;
 import android.widget.RelativeLayout;
 
 /**
@@ -30,6 +31,12 @@ public class MyRelativeLayout extends RelativeLayout {
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         System.out.println("jiangbin--> mode "+MeasureSpec.getMode(widthMeasureSpec)+" width "+MeasureSpec.getSize(widthMeasureSpec));
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+    }
+
+    @Override
+    public WindowInsets dispatchApplyWindowInsets(WindowInsets insets) {
+        System.out.println("jiangbin--> insets "+insets);
+        return super.dispatchApplyWindowInsets(insets);
     }
 
     @Override

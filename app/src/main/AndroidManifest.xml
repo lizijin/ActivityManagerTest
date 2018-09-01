@@ -23,7 +23,9 @@
         <activity
             android:name=".FrameLayoutActivity"
             android:label="@string/title_activity_frame_layout"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".MyFragmentActivity" />
+        <activity android:name=".TestCoordinatorLayout"></activity>
     </application>
 
 </manifest>

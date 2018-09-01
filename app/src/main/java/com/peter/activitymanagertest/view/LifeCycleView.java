@@ -44,14 +44,27 @@ public class LifeCycleView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         System.out.println("jiangbin--> onDraw");
+//        try {
+//            Thread.sleep(20);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
 
     }
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent event) {
+        if(event.getAction()==MotionEvent.ACTION_DOWN)return true;
         boolean dispatch = super.dispatchTouchEvent(event);
         System.out.println("jiangbin-> dispatchTouchEvent life "+event.toString());
         System.out.println("jiangbin-> life "+dispatch);
-        return dispatch;
+        return false;
+    }
+
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        System.out.println("jiangbin--> animation onDetachedFromWindow");
+
     }
 }
